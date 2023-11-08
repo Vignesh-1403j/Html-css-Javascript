@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guessing Number Game</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        color: #333;
+        font-size: 28px;
+      }
+
+      #input {
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+        border: 2px solid #333;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #0074d9;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #result {
+        font-size: 18px;
+        color: #333;
+        margin: 20px;
+      }
+
+      #scorecard {
+        font-size: 16px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Guessing Number Game</h1>
+    <input type="text" id="input" placeholder="Enter the number" />
+    <button onclick="Checknumber()">Submit</button>
+    <p id="result">Entered number is correct or wrong</p>
+    <p id="scorecard">Your Score is: 10</p>
+  </body>
+  <script>
+    enterednumber = document.getElementById("input");
+    finalresult = document.getElementById("result");
+    scorecard = document.getElementById("scorecard");
+    score = 10;
+    gennumber = Math.floor(Math.random() * 10) + 1;
+    console.log(gennumber);
+
+    function Checknumber() {
+      inputnum = enterednumber.value;
+      if (inputnum == gennumber) {
+        console.log("Great Your answer is correct");
+        alert("You won!");
+        finalresult.textContent = "Great Job";
+        scorecard.textContent = "Your score is: " + score;
+      } else {
+        score = score - 1;
+        console.log("Entered number is wrong. Try again");
+        finalresult.textContent = "Invalid number";
+        scorecard.textContent = "Your score is: " + score;
+      }
+    }
+  </script>
+</html>
