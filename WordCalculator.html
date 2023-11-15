@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Words Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #inputText {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text to Words Calculator</h1>
+    
+    <textarea id="inputText" placeholder="Enter text here..."></textarea>
+    
+    <button onclick="countWords()">Count Words</button>
+
+    <p id="result">Number of words: <span id="wordCount">0</span></p>
+
+    <script>
+        function countWords() {
+            // Get the input text
+            var inputText = document.getElementById('inputText').value;
+
+            // Remove leading and trailing whitespaces
+            inputText = inputText.trim();
+
+            // Count the number of words
+            var wordCount = inputText.split(/\s+/).filter(function(word) {
+                return word.length > 0;
+            }).length;
+
+            // Display the result
+            document.getElementById('wordCount').textContent = wordCount;
+        }
+    </script>
+</body>
+</html>
